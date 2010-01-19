@@ -1,0 +1,5 @@
+Markov is a simple text-generation facility.  Eventually, I expect it'll
+get folded into something like RailsGame.
+
+The initial idea is to allow simple, configurable generation of names and
+other randomizable data.
