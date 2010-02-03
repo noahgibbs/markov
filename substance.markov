@@ -53,12 +53,24 @@
       - murky
     - - 1.0
       - mottled
+    - - 0.8
+      - serpentine
+    - - 1.0
+      - glossy
+    - - 0.5
+      - opalescent
+    - - 0.3
+      - mossy
     - - 0.1
       - star
     - - 0.1
       - "tiger's-eye"
     - - 0.8
       - banded
+    - - 0.6
+      - striped
+    - - 0.4
+      - ribald
   - :gemmy_adjective
 - - 1.0
   - - :one_of
@@ -78,6 +90,12 @@
       - distilled
     - - 0.5
       - revivified
+    - - 0.5
+      - phlogisticated
+    - - 1.0
+      - oxidized
+    - - 1.0
+      - nitrified
   - :element_adjective
 - - 1.0
   - - :one_of
@@ -109,11 +127,19 @@
 - - 1.0
   - - :one_of
     - - 1.0
+      - Arden
+    - - 1.0
+      - Avern
+    - - 1.0
+      - Bach
+    - - 1.0
       - Eisen
     - - 1.0
       - Cram
     - - 1.0
       - Gord
+    - - 1.0
+      - Gibb
     - - 1.0
       - Gram
     - - 1.0
@@ -144,6 +170,12 @@
       - Jott
     - - 1.0
       - Jaunte
+    - - 1.0
+      - Wargen
+    - - 1.0
+      - Van
+    - - 1.0
+      - Wirt
     - - 0.5
       - - :+
         - "van der "
@@ -154,7 +186,7 @@
         - :first_half_scientist_name
     - - 0.5
       - - :+
-        - "van "
+        - "von "
         - :first_half_scientist_name
     - - 1.0
       - Jormund
@@ -192,6 +224,8 @@
     - - 1.0
       - berg
     - - 1.0
+      - see
+    - - 1.0
       - spiel
     - - 1.0
       - stein
@@ -199,13 +233,13 @@
       - furd
     - - 1.0
       - garten
-    - - 1.0
+    - - 0.5
       - gartner
     - - 1.0
       - - :+
         - :second_half_scientist_name
         - "-"
-        - :silly_scientist_name
+        - :scientist_name
   - :second_half_scientist_name
 - - 1.0
   - - :+
@@ -258,9 +292,13 @@
 - - 1.0
   - - :one_of
     - - 1.0
-      - rose
-    - - 1.0
       - diamond
+    - - 0.2
+      - demantoid
+    - - 1.0
+      - topaz
+    - - 0.4
+      - sapphire
     - - 1.0
       - earth
     - - 0.1
@@ -275,6 +313,12 @@
       - eye
     - - 1.0
       - hand
+    - - 0.2
+      - copper
+    - - 0.2
+      - iron
+    - - 1.0
+      - ash
   - :common_object
 - - 1.0
   - - :+
@@ -342,12 +386,22 @@
       - red
     - - 1.0
       - green
+    - - 0.2
+      - chartreuse
+    - - 1.0
+      - white
     - - 1.0
       - yellow
+    - - 0.6
+      - silver
     - - 1.0
       - blue
     - - 0.5
       - cyan
+    - - 0.5
+      - crimson
+    - - 0.5
+      - maroon
   - :color
 - - 1.0
   - - :one_of
