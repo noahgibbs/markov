@@ -31,6 +31,7 @@ module Markov
       data.each do |row|
         next if row.length <= 2
         if row[2].kind_of? Symbol
+	  raise "Two definitions for symbol #{row[2]}!" if @names[row[2]]
           @names[row[2]] = row
         else
           raise "Name must be a symbol!" if row[2]
@@ -45,7 +46,7 @@ module Markov
           when :start then one()
           when Array then evaluate_array(item)
           when Symbol then evaluate(@names[item][1])
-          else die "Don't know how to evaluate: #{item.inspect}!"
+          else raise "Don't know how to evaluate: #{item.inspect}!"
         end
       rescue
         raise "Error evaluating item #{item.inspect}: #{$!}"
