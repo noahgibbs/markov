@@ -3,6 +3,7 @@ require 'yaml'
 module Markov
   class Generator
     attr_reader :structs
+
     def initialize(data)
       @names = {}
       if data.kind_of? Array
@@ -20,7 +21,7 @@ module Markov
 
     def one
       total = @structs.map {|s| s[0]}.inject(0.0, &:+)
-      selected = rand * total
+      selected = rand_float_between(0.0, total)
 
       subtotal = 0.0
       @structs.each do |entry|
@@ -34,6 +35,7 @@ module Markov
     def set_structs(data)
       @structs = data
       data.each do |row|
+        next if row.length <= 2
         if row[2].kind_of? Symbol
           @names[row[2]] = row
         else
@@ -45,21 +47,54 @@ module Markov
     def evaluate(item)
       case item
         when String then item
-        when Array then item.map {|s| evaluate(s)}.inject("", &:+)
         when :one then one()
+        when :top then one()
+        when Array then evaluate_array(item)
         when Symbol then evaluate(@names[item][1])
         else die "Don't know how to evaluate: #{item.inspect}!"
       end
     end
+
+    def evaluate_array(item)
+      if item[0].kind_of? Numeric
+      end
+
+      if item[0].kind_of? Symbol
+        return case item[0]
+          # Normal symbols, evaluate array as concatenation
+          when :one then evaluate_and_add(item)
+          # Explicit concatenation, just in case
+          when :+ then evaluate_and_add(item)
+
+          when :one_of then evaluate_one_of(item)
+          else die "Unknown symbol #{item[0]} in array!"
+        end
+      end
+      evaluate_and_add(item)
+    end
+
+    def evaluate_and_add(array)
+      array.map {|s| evaluate(s)}.inject("", &:+)
+    end
+
+    def evaluate_one_of(array)
+      elements = array.size - 1   # remove one for leading :one_of symbol
+
+      raise "Unimplemented!"
+    end
+
+    def rand_float_between(min, max)
+      min + rand * (max - min)
+    end
   end
 
-  def self.load(filename)
+  def self.from_file(filename)
     structures = nil
     File.open(filename) do |f|
       structures = YAML::load(f.read)
     end
 
-    Generator.new structures
+    g = Generator.new structures
   end
 
 end
