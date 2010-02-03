@@ -1,0 +1,50 @@
+--- 
+- - 1.0
+  - - :one_of
+    - - 1.0
+      - ah
+    - - 1.0
+      - ay
+    - - 1.0
+      - oh
+    - - 1.0
+      - ew
+    - - 1.0
+      - uh
+  - :vowel
+- - 1.0
+  - - :one_of
+    - - 1.0
+      - r
+    - - 1.0
+      - t
+    - - 1.0
+      - s
+    - - 1.0
+      - b
+    - - 1.0
+      - p
+    - - 1.0
+      - g
+    - - 1.0
+      - k
+  - :consonant
+- - 1.0
+  - - :+
+    - :consonant
+    - :vowel
+  - :syllable
+- - 1.0
+  - - :one_of
+    - - 1.0
+      - :syllable
+    - - 1.0
+      - - :+
+        - :syllable
+        - :syllable
+    - - 1.0
+      - - :+
+        - :syllable
+        - :syllable
+        - :syllable
+  - :start
