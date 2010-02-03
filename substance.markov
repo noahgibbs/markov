@@ -32,16 +32,59 @@
       - ot
   - :gemmy_suffix
 - - 1.0
+  - - :one_of
+    - - 1.0
+      - "Phreebaum's"
+    - - 1.0
+      - Gibbsian
+    - - 1.0
+      - Borginine
+    - - 1.0
+      - Heterodized
+    - - 1.0
+      - "Wolfram's"
+  - :scientist_possessive
+- - 1.0
   - - :+
     - :syllables
     - :consonant
     - :gemmy_suffix
+  - :basic_gemmy_name
+- - 1.0
+  - - :+
+    - :color
+    - " "
+    - :syllables
+    - :consonant
+    - :gemmy_suffix
+  - :colored_gemmy_name
+- - 1.0
+  - - :one_of
+    - - 1.0
+      - :basic_gemmy_name
+    - - 1.0
+      - :colored_gemmy_name
   - :gemmy_name
 - - 1.0
   - - :+
     - :syllables
     - :consonant
     - :element_suffix
+  - :basic_element_name
+- - 1.0
+  - - :+
+    - :scientist_possessive
+    - " "
+    - :syllables
+    - :consonant
+    - :element_suffix
+  - :scientist_element_name
+- - 1.0
+  - - :one_of
+    - - 1.0
+      - :basic_element_name
+    - - 0.2
+      - :scientist_element_name
   - :element_name
 - - 1.0
   - - :one_of
