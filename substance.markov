@@ -15,6 +15,16 @@
       - erbium
     - - 1.0
       - inum
+    - - 1.0
+      - ite
+    - - 1.0
+      - inite
+    - - 1.0
+      - anite
+    - - 0.5
+      - "on"
+    - - 1.0
+      - uth
   - :element_suffix
 - - 1.0
   - - :one_of
@@ -28,49 +38,296 @@
       - anum
     - - 0.5
       - annum
-    - - 0.5
+    - - 0.3
       - ot
+    - - 0.4
+      - oprase
   - :gemmy_suffix
 - - 1.0
   - - :one_of
     - - 1.0
-      - "Phreebaum's"
+      - smoky
+    - - 0.5
+      - rosy
+    - - 0.2
+      - murky
     - - 1.0
-      - Gibbsian
-    - - 1.0
-      - Borginine
-    - - 1.0
-      - Heterodized
-    - - 1.0
-      - "Wolfram's"
-  - :scientist_possessive
+      - mottled
+    - - 0.1
+      - star
+    - - 0.1
+      - "tiger's-eye"
+    - - 0.8
+      - banded
+  - :gemmy_adjective
 - - 1.0
-  - - :+
-    - :syllables
-    - :consonant
-    - :gemmy_suffix
-  - :basic_gemmy_name
-- - 1.0
-  - - :+
-    - :color
-    - " "
-    - :syllables
-    - :consonant
-    - :gemmy_suffix
-  - :colored_gemmy_name
+  - - :one_of
+    - - 0.3
+      - heterodynamic
+    - - 1.0
+      - electrified
+    - - 1.0
+      - aetheric
+    - - 1.0
+      - rarefied
+    - - 0.1
+      - diatomaceous
+    - - 0.8
+      - refined
+    - - 0.8
+      - distilled
+    - - 0.5
+      - revivified
+  - :element_adjective
 - - 1.0
   - - :one_of
     - - 1.0
-      - :basic_gemmy_name
+      - Jormundgander
     - - 1.0
-      - :colored_gemmy_name
-  - :gemmy_name
+      - Phlox
+    - - 1.0
+      - Endymion
+    - - 1.0
+      - Hyperion
+    - - 1.0
+      - Zogron
+  - :either_silly_scientist_name
+- - 1.0
+  - - :one_of
+    - - 1.0
+      - Heterod
+    - - 30.0
+      - :either_silly_scientist_name
+  - :modifiable_silly_scientist_name
+- - 1.0
+  - - :one_of
+    - - 1.0
+      - Heterodyne
+    - - 30.0
+      - :either_silly_scientist_name
+  - :silly_scientist_name
+- - 1.0
+  - - :one_of
+    - - 1.0
+      - Eisen
+    - - 1.0
+      - Cram
+    - - 1.0
+      - Gord
+    - - 1.0
+      - Gram
+    - - 1.0
+      - Gra
+    - - 1.0
+      - Glock
+    - - 1.0
+      - Glocken
+    - - 1.0
+      - Phlox
+    - - 1.0
+      - Phree
+    - - 1.0
+      - Fargen
+    - - 1.0
+      - Franken
+    - - 1.0
+      - Schlock 
+    - - 1.0
+      - Schach
+    - - 1.0
+      - Sherben
+    - - 1.0
+      - Schmott
+    - - 1.0
+      - Jagen
+    - - 1.0
+      - Jott
+    - - 1.0
+      - Jaunte
+    - - 0.5
+      - - :+
+        - "van der "
+        - :first_half_scientist_name
+    - - 0.5
+      - - :+
+        - "van den "
+        - :first_half_scientist_name
+    - - 0.5
+      - - :+
+        - "van "
+        - :first_half_scientist_name
+    - - 1.0
+      - Jormund
+  - :first_half_scientist_name
+- - 1.0
+  - - :one_of
+    - - 1.0
+      - wanger
+    - - 1.0
+      - vander
+    - - 1.0
+      - varger
+    - - 1.0
+      - saggler
+    - - 1.0
+      - feuer
+    - - 1.0
+      - farber
+    - - 1.0
+      - rich
+    - - 1.0
+      - reich
+    - - 1.0
+      - hauer
+    - - 1.0
+      - baum
+    - - 1.0
+      - triggan
+    - - 1.0
+      - ham
+    - - 1.0
+      - hammer
+    - - 1.0
+      - burg
+    - - 1.0
+      - berg
+    - - 1.0
+      - spiel
+    - - 1.0
+      - stein
+    - - 1.0
+      - furd
+    - - 1.0
+      - garten
+    - - 1.0
+      - gartner
+    - - 1.0
+      - - :+
+        - :second_half_scientist_name
+        - "-"
+        - :silly_scientist_name
+  - :second_half_scientist_name
 - - 1.0
   - - :+
+    - :first_half_scientist_name
+    - :second_half_scientist_name
+  - :either_compound_scientist_name
+- - 1.0
+  - - :one_of
+    - - 30.0
+      - :either_compound_scientist_name
+  - :modifiable_compound_scientist_name
+- - 1.0
+  - - :one_of
+    - - 30.0
+      - :either_compound_scientist_name
+  - :compound_scientist_name
+- - 1.0
+  - - :one_of
+    - - 1.0
+      - :silly_scientist_name
+    - - 8.0
+      - :compound_scientist_name
+  - :scientist_name
+- - 1.0
+  - - :one_of
+    - - 1.0
+      - :modifiable_silly_scientist_name
+    - - 8.0
+      - :modifiable_compound_scientist_name
+  - :modifiable_scientist_name
+- - 1.0
+  - - :one_of
+    - - 1.0
+      - - :+
+        - :scientist_name
+        - "'s"
+    - - 1.0
+      - - :+
+        - :modifiable_scientist_name
+        - "-ian"
+    - - 1.0
+      - - :+
+        - :modifiable_scientist_name
+        - "-ized"
+    - - 1.0
+      - - :+
+        - :modifiable_scientist_name
+        - "-ified"
+  - :scientist_possessive
+- - 1.0
+  - - :one_of
+    - - 1.0
+      - rose
+    - - 1.0
+      - diamond
+    - - 1.0
+      - earth
+    - - 0.1
+      - islet
+    - - 0.5
+      - crown
+    - - 1.0
+      - horn
+    - - 1.0
+      - sword
+    - - 1.0
+      - eye
+    - - 1.0
+      - hand
+  - :common_object
+- - 1.0
+  - - :+
+    - :optional_gemmy_color
+    - :optional_gemmy_adjective
+    - :syllables
+    - :consonant
+    - :gemmy_suffix
+  - :gemmy_name
+- - 1.0
+  - - :one_of
+    - - 1.0
+      - - :+
+        - :color
+        - " "
+    - - 1.0
+      - ""
+  - :optional_gemmy_color
+- - 1.0
+  - - :one_of
+    - - 1.0
+      - - :+
+        - :gemmy_adjective
+        - " "
+    - - 1.0
+      - ""
+  - :optional_gemmy_adjective
+- - 1.0
+  - - :one_of
+    - - 0.15
+      - - :+
+        - :scientist_possessive
+        - " "
+    - - 1.0
+      - ""
+  - :optional_scientist_possessive
+- - 1.0
+  - - :one_of
+    - - 0.3
+      - - :+
+        - :element_adjective
+        - " "
+    - - 1.0
+      - ""
+  - :optional_element_adjective
+- - 1.0
+  - - :+
+    - :optional_scientist_possessive
+    - :optional_element_adjective
     - :syllables
     - :consonant
     - :element_suffix
-  - :basic_element_name
+  - :element_name
 - - 1.0
   - - :+
     - :scientist_possessive
@@ -79,13 +336,6 @@
     - :consonant
     - :element_suffix
   - :scientist_element_name
-- - 1.0
-  - - :one_of
-    - - 1.0
-      - :basic_element_name
-    - - 0.2
-      - :scientist_element_name
-  - :element_name
 - - 1.0
   - - :one_of
     - - 1.0
@@ -191,7 +441,22 @@
 - - 1.0
   - - :one_of
     - - 1.0
+      - - :+
+        - :scientist_name
+        - "'s "
+        - :common_object
+    - - 1.0
+      - - :+
+        - :common_object
+        - " of "
+        - :scientist_name
+  - :possessive_common_object_name
+- - 1.0
+  - - :one_of
+    - - 1.0
       - :gemmy_name
     - - 1.0
       - :element_name
+    - - 0.2
+      - :possessive_common_object_name
   - :start
