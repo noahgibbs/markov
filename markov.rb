@@ -20,14 +20,8 @@ module Markov
     end
 
     def one
-      total = @structs.map {|s| s[0]}.inject(0.0, &:+)
-      selected = rand_float_between(0.0, total)
-
-      subtotal = 0.0
-      @structs.each do |entry|
-        return evaluate(entry[1]) if (subtotal + entry[0]) > selected
-        subtotal += entry[0]
-      end
+      return evaluate(@names[:start][1]) if @names[:start]
+      evaluate_one_of(@structs)
     end
 
     private
@@ -45,29 +39,35 @@ module Markov
     end
 
     def evaluate(item)
-      case item
-        when String then item
-        when :one then one()
-        when :top then one()
-        when Array then evaluate_array(item)
-        when Symbol then evaluate(@names[item][1])
-        else die "Don't know how to evaluate: #{item.inspect}!"
+      begin
+        case item
+          when String then item
+          when :start then one()
+          when Array then evaluate_array(item)
+          when Symbol then evaluate(@names[item][1])
+          else die "Don't know how to evaluate: #{item.inspect}!"
+        end
+      rescue
+        raise "Error evaluating item #{item.inspect}: #{$!}"
       end
     end
 
     def evaluate_array(item)
       if item[0].kind_of? Numeric
+        raise "Unimplemented!"
       end
 
       if item[0].kind_of? Symbol
         return case item[0]
-          # Normal symbols, evaluate array as concatenation
-          when :one then evaluate_and_add(item)
-          # Explicit concatenation, just in case
-          when :+ then evaluate_and_add(item)
+          # Non-operator symbol, just evaluate array as concatenation
+          when :start then evaluate_and_add(item)
 
-          when :one_of then evaluate_one_of(item)
-          else die "Unknown symbol #{item[0]} in array!"
+          # Explicit concatenation operator
+          when :+ then evaluate_and_add(item[1..-1])
+
+          # One-of operator
+          when :one_of then evaluate_one_of(item[1..-1])
+          else raise "Unknown symbol #{item[0]} in array!"
         end
       end
       evaluate_and_add(item)
@@ -78,9 +78,14 @@ module Markov
     end
 
     def evaluate_one_of(array)
-      elements = array.size - 1   # remove one for leading :one_of symbol
+      total = array.map {|s| s[0]}.inject(0.0, &:+)
+      selected = rand_float_between(0.0, total)
 
-      raise "Unimplemented!"
+      subtotal = 0.0
+      array.each do |entry|
+        return evaluate(entry[1]) if (subtotal + entry[0]) > selected
+        subtotal += entry[0]
+      end
     end
 
     def rand_float_between(min, max)
