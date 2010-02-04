@@ -58,12 +58,8 @@ end
 
 # Parse options, check arguments, then process the command
 if arguments_valid? 
-  # TO DO - do whatever this app does
-  @arguments.each do |arg|
-    g = Markov.from_file arg
-    @options.n.times { print g.one + "\n" }
-  end
-  #print "Options: #{@options.inspect}\nArgs: #{@arguments}\n"
+  g = Markov.from_files *@arguments
+  @options.n.times { print g.one + "\n" }
 else
   output_usage
 end
