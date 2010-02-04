@@ -25,6 +25,8 @@
       - "on"
     - - 1.0
       - uth
+    - - 1.0
+      - ine
   - :element_suffix
 - - 1.0
   - - :one_of
@@ -65,12 +67,16 @@
       - star
     - - 0.1
       - "tiger's-eye"
+    - - 0.2
+      - "cat's-eye"
     - - 0.8
       - banded
     - - 0.6
       - striped
     - - 0.4
       - ribald
+    - - 0.8
+      - dendritic
   - :gemmy_adjective
 - - 1.0
   - - :one_of
@@ -319,6 +325,14 @@
       - iron
     - - 1.0
       - ash
+    - - 1.0
+      - topaz
+    - - 1.0
+      - zircon
+    - - 0.5
+      - ruby
+    - - 0.5
+      - sapphire
   - :common_object
 - - 1.0
   - - :+
@@ -391,6 +405,14 @@
     - - 1.0
       - white
     - - 1.0
+      - clear
+    - - 1.0
+      - crystal
+    - - 1.0
+      - black
+    - - 1.0
+      - brown
+    - - 1.0
       - yellow
     - - 0.6
       - silver
@@ -402,6 +424,8 @@
       - crimson
     - - 0.5
       - maroon
+    - - 0.6
+      - golden
   - :color
 - - 1.0
   - - :one_of
@@ -415,7 +439,7 @@
       - o
     - - 1.0
       - u
-    - - 0.5
+    - - 0.2
       - oo
     - - 0.8
       - ae
@@ -427,6 +451,10 @@
       - ou
     - - 0.3
       - au
+    - - 0.3
+      - ai
+    - - 0.05
+      - uu
     - - 0.2
       - ui
   - :vowel
