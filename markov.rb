@@ -94,13 +94,19 @@ module Markov
     end
   end
 
-  def self.from_file(filename)
-    structures = nil
-    File.open(filename) do |f|
-      structures = YAML::load(f.read)
+  def self.from_file(*filenames)
+    structures = []
+    filenames.each do |filename|
+      File.open(filename) do |f|
+        structures += YAML::load f.read
+      end
     end
 
     g = Generator.new structures
+  end
+
+  def self.from_files(*filenames)
+    self.from_file *filenames
   end
 
 end
