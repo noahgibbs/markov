@@ -25,43 +25,40 @@
 #   Copyright (c) 2010 Noah Gibbs. Licensed under the MIT License:
 #   http://www.opensource.org/licenses/mit-license.php
 
-require 'optparse' 
-require 'rdoc/usage'
-require 'ostruct'
-
 require "markov"
 
-@arguments = ARGV
-@options = OpenStruct.new
-@options.n = 1
-#@options.verbose = false
+arguments = ARGV
 
-OptionParser.new do |opts|
-  opts.banner = "Usage: #{$0} [options]"
-  opts.on('-n', '--num [SAMPLES]', Integer, 'Set the number of samples') { |n|
-    @options.n = n
-  }
-  opts.on('-h', '--help', 'Display this screen') do
-    puts opts
-    exit
+def print_usage
+  puts "Usage: #{$0} [options]\n"
+  puts "  -h: print usage\n"
+  puts "  -n ARG: number of times\n"
+end
+
+if arguments.include?("-h") || arguments.include?("--help")
+  print_usage
+  exit
+end
+
+option_n = 1
+newargs = []
+
+last_was_n = false
+arguments.each do |arg|
+  if arg == "-n"
+    last_was_n = true
+  elsif last_was_n
+    option_n = arg.to_i
+    last_was_n = false
+  else
+    newargs << arg
   end
-end.parse! @arguments
-
-# Perform post-parse processing on options
-#@options.verbose = false if @options.quiet
-
-# True if required arguments were provided
-def arguments_valid?
-  #true if @arguments.length == 1 
-  true
 end
 
-# Parse options, check arguments, then process the command
-if arguments_valid? 
-  g = Markov.from_files *@arguments
-  @options.n.times { print g.one + "\n" }
-else
-  output_usage
+if newargs.size < 1
+  print_usage
+  exit
 end
 
-#RDoc::usage('usage') # gets usage from comments above
+g = Markov.from_files *newargs
+option_n.times { puts g.one }
